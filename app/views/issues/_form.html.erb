@@ -1,0 +1,32 @@
+<%= form_with(model: [@project, @issue]) do |form| %>
+  <% if @issue.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mb-6">
+      <h2><%= pluralize(@issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
+
+      <ul>
+        <% @issue.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-4">
+    <%= form.label :title, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :status, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.select :status, Issue::STATUS_OPTIONS.map { |s| [s.humanize, s] }, {}, class: "shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :priority, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.select :priority, Issue::PRIORITY_OPTIONS, {}, class: "shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+  </div>
+<% end %>

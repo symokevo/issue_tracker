@@ -1,0 +1,43 @@
+<div class="bg-white shadow rounded-lg overflow-hidden">
+  <table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+      <tr>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Priority</th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created</th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+      <% issues.each do |issue| %>
+        <tr>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <%= link_to issue.title, project_issue_path(@project, issue), class: "text-blue-600 hover:text-blue-800" %>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+              <%= case issue.status 
+                  when 'New' then 'bg-blue-100 text-blue-800'
+                  when 'In_Progress' then 'bg-yellow-100 text-yellow-800'
+                  when 'Closed' then 'bg-green-100 text-green-800'
+                  else 'bg-gray-100 text-gray-800'
+                  end %>">
+              <%= issue.status.humanize %>
+            </span>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <%= issue.priority %>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+            <%= time_ago_in_words(issue.created_at) %> ago
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+            <%= link_to 'Edit', edit_project_issue_path(@project, issue), class: "text-indigo-600 hover:text-indigo-900 mr-3" %>
+            <%= link_to 'Destroy', project_issue_path(@project, issue), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-red-600 hover:text-red-900" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
