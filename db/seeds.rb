@@ -1,9 +1,14 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+project1 = Project.create!(title: "Website Redesign", description: "Complete redesign of company website")
+project2 = Project.create!(title: "Mobile App Development", description: "Build new mobile app for iOS and Android")
+
+project1.issues.create!([
+  { title: "Update homepage layout", status: "New", priority: 2 },
+  { title: "Fix broken contact form", status: "In_Progress", priority: 1 },
+  { title: "Add new product pages", status: "Closed", priority: 3 }
+])
+
+project2.issues.create!([
+  { title: "Design app icon", status: "New", priority: 4 },
+  { title: "Implement user authentication", status: "In_Progress", priority: 1 },
+  { title: "Test on Android devices", status: "New", priority: 2 }
+])
