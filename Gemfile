@@ -65,3 +65,7 @@ group :test do
 end
 
 gem "axlsx_rails", "~> 0.6.1"
+
+gem "wicked_pdf", "~> 2.8"
+
+gem "wkhtmltopdf-binary", "~> 0.12.6"
