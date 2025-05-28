@@ -33,8 +33,14 @@
             <%= time_ago_in_words(issue.created_at) %> ago
           </td>
           <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-            <%= link_to 'Edit', edit_project_issue_path(@project, issue), class: "text-indigo-600 hover:text-indigo-900 mr-3" %>
-            <%= link_to 'Destroy', project_issue_path(@project, issue), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-red-600 hover:text-red-900" %>
+            <%= link_to 'Edit', edit_project_issue_path(@project, issue), 
+                class: "text-indigo-600 hover:text-indigo-900 mr-3" %>
+            <%= link_to 'Destroy', project_issue_path(@project, issue), 
+                method: :delete, data: { 
+                  confirm: 'Are you sure?',
+                  turbo_method: :delete 
+                  }, 
+                class: "text-red-600 hover:text-red-900" %>
           </td>
         </tr>
       <% end %>

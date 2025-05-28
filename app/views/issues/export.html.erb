@@ -1,0 +1,36 @@
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-2xl font-bold mb-4">Issues Report for <%= @project.title %></h1>
+  <p class="mb-6">Generated on: <%= Time.current.strftime("%B %d, %Y") %></p>
+  
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="py-2 px-4 border">Title</th>
+          <th class="py-2 px-4 border">Status</th>
+          <th class="py-2 px-4 border">Priority</th>
+          <th class="py-2 px-4 border">Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @issues.each do |issue| %>
+          <tr>
+            <td class="py-2 px-4 border"><%= issue.title %></td>
+            <td class="py-2 px-4 border">
+              <span class="px-2 py-1 rounded-full text-xs 
+                <%= case issue.status
+                    when 'New' then 'bg-blue-100 text-blue-800'
+                    when 'In_Progress' then 'bg-yellow-100 text-yellow-800'
+                    when 'Closed' then 'bg-green-100 text-green-800'
+                    end %>">
+                <%= issue.status.humanize %>
+              </span>
+            </td>
+            <td class="py-2 px-4 border"><%= issue.priority %></td>
+            <td class="py-2 px-4 border"><%= issue.created_at.strftime("%Y-%m-%d") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

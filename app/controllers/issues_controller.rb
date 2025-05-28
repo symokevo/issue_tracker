@@ -60,6 +60,23 @@ class IssuesController < ApplicationController
     end
   end
 
+  def export
+    @issues = @project.issues.recent
+
+    respond_to do |format|
+      format.xlsx do
+        response.headers['Content-Disposition'] = "attachment; filename=#{@project.title.parameterize}_issues_#{Date.today}.xlsx"
+      end
+      format.pdf do
+        render pdf: "#{@project.title.parameterize}_issues_report_#{Date.today}",
+              template: "issues/export",
+              formats: [:html],
+              disposition: :attachment,
+              layout: 'pdf'
+      end
+    end
+  end
+
   private
     def set_project
       @project = Project.find(params[:project_id])

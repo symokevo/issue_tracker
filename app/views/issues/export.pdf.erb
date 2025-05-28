@@ -1,22 +1,44 @@
-<h1 class="text-2xl font-bold mb-6">Issues Report for <%= @project.title %></h1>
-
-<table class="w-full border-collapse">
-  <thead>
-    <tr class="bg-gray-200">
-      <th class="p-2 border">Title</th>
-      <th class="p-2 border">Status</th>
-      <th class="p-2 border">Priority</th>
-      <th class="p-2 border">Created At</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @issues.each do |issue| %>
-      <tr>
-        <td class="p-2 border"><%= issue.title %></td>
-        <td class="p-2 border"><%= issue.status %></td>
-        <td class="p-2 border"><%= issue.priority %></td>
-        <td class="p-2 border"><%= issue.created_at.strftime('%Y-%m-%d %H:%M') %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Issues Report - <%= @project.title %></title>
+    <style>
+      body { font-family: Arial, sans-serif; }
+      h1 { color: #3B82F6; }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+      th { background-color: #f2f2f2; }
+      .status-new { background-color: #dbeafe; color: #1e40af; }
+      .status-in_progress { background-color: #fef3c7; color: #92400e; }
+      .status-closed { background-color: #dcfce7; color: #065f46; }
+    </style>
+  </head>
+  <body>
+    <h1>Issues Report for <%= @project.title %></h1>
+    <p>Generated on: <%= Time.current.strftime("%B %d, %Y") %></p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Priority</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @issues.each do |issue| %>
+          <tr>
+            <td><%= issue.title %></td>
+            <td class="status-<%= issue.status.downcase %>">
+              <%= issue.status.humanize %>
+            </td>
+            <td><%= issue.priority %></td>
+            <td><%= issue.created_at.strftime("%Y-%m-%d") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </body>
+</html>

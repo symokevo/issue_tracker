@@ -19,6 +19,8 @@ gem "cssbundling-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem "chartkick"
+
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
@@ -67,5 +69,3 @@ end
 gem "axlsx_rails", "~> 0.6.1"
 
 gem "wicked_pdf", "~> 2.8"
-
-gem "wkhtmltopdf-binary", "~> 0.12.6"
