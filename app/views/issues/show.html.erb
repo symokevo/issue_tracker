@@ -1,0 +1,34 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-3xl font-bold"><%= @issue.title %></h1>
+    <div>
+      <%= link_to 'Edit', edit_project_issue_path(@project, @issue), class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2" %>
+      <%= link_to 'Back', project_issues_path(@project), class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
+    </div>
+  </div>
+
+  <div class="bg-white shadow rounded-lg p-6 mb-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <h2 class="text-lg font-semibold mb-2">Details</h2>
+        <p><strong>Status:</strong> 
+          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+            <%= case @issue.status 
+                when 'New' then 'bg-blue-100 text-blue-800'
+                when 'In_Progress' then 'bg-yellow-100 text-yellow-800'
+                when 'Closed' then 'bg-green-100 text-green-800'
+                else 'bg-gray-100 text-gray-800'
+                end %>">
+            <%= @issue.status.humanize %>
+          </span>
+        </p>
+        <p><strong>Priority:</strong> <%= @issue.priority %></p>
+      </div>
+      <div>
+        <h2 class="text-lg font-semibold mb-2">Timestamps</h2>
+        <p><strong>Created:</strong> <%= @issue.created_at.to_formatted_s(:long) %></p>
+        <p><strong>Updated:</strong> <%= @issue.updated_at.to_formatted_s(:long) %></p>
+      </div>
+    </div>
+  </div>
+</div>
