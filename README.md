@@ -68,7 +68,7 @@ wkhtmltopdf --version
 ![Chart](./chart.png)
 
 ### PDF-Screenshot
-![PDF-Screenshot](./pdf-screeshot.png)
+[PDF-Screenshot](./pdf-screeshot.png)
 
 # Demo
 Click here for a short demonstration of the project </br>
