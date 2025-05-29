@@ -69,3 +69,7 @@ wkhtmltopdf --version
 
 ### PDF-Screenshot
 ![PDF-Screenshot](./pdf-screeshot.png)
+
+# Demo
+Click here for a short demonstration of the project </br>
+![PLAY](https://www.canva.com/design/DAGozP3w184/hCK7bC_PcrloITSxadHsrw/edit?utm_content=DAGozP3w184&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
