@@ -1,24 +1,71 @@
-# README
+# Rails Issue Tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple Rails application for tracking project issues with reporting and export capabilities.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+- Project management (CRUD)
+- Issue tracking with status and priority
+- Graphical reports (status/priority distribution)
+- Export to Excel (XLSX) and PDF formats
+- Responsive UI with Tailwind CSS
 
-* System dependencies
+## Prerequisites
 
-* Configuration
+- Ruby 3.2.2 or later
+- Rails 8.0.0 or later
+- PostgreSQL 12+
+- Node.js 16+
+- Yarn 1.22+
 
-* Database creation
+## Setup Instructions
 
-* Database initialization
+### 1. Clone the Repository
 
-* How to run the test suite
+```bash
+git clone https://github.com/yourusername/issue_tracker.git
+cd issue_tracker
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Install Dependencies
 
-* Deployment instructions
+# Ruby gems
+bundle install
 
-* ...
+# JavaScript packages
+yarn install
+
+# Create and migrate database
+rails db:create
+rails db:migrate
+
+# Optional: Seed with sample data
+rails db:seed
+
+## Start the Application
+./bin/dev
+
+# Testing
+rails test
+
+# Note
+
+If PDF generation fails:
+
+Install wkhtmltopdf:
+
+## Ubuntu/Debian
+sudo apt-get install wkhtmltopdf
+
+## MacOS
+brew install --cask wkhtmltopdf
+### Verify installation:
+
+wkhtmltopdf --version
+
+# Screenshots 
+### Chart
+![Chart](./chart.png)
+
+### PDF-Screenshot
+![PDF-Screenshot](./pdf-screeshot.png)

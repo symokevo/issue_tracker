@@ -1,13 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  title: MyString
-  status: MyString
+  title: "First Issue"
+  status: "New"
   priority: 1
   project: one
 
 two:
-  title: MyString
-  status: MyString
-  priority: 1
-  project: two
+  title: "Second Issue"
+  status: "In_Progress"
+  priority: 3
+  project: one
