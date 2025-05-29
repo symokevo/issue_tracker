@@ -2,8 +2,10 @@
   <div class="flex justify-between items-center mb-6">
     <h1 class="text-3xl font-bold"><%= @project.title %></h1>
     <div>
-      <%= link_to 'Edit', edit_project_path(@project), class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2" %>
-      <%= link_to 'Back', projects_path, class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
+      <%= link_to 'Edit', edit_project_path(@project), 
+          class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2" %>
+      <%= link_to 'Back', projects_path, 
+          class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
     </div>
   </div>
 
@@ -14,9 +16,12 @@
   <div class="flex justify-between items-center mb-6">
     <h2 class="text-2xl font-semibold">Issues</h2>
     <div>
-      <%= link_to 'New Issue', new_project_issue_path(@project), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" %>
-      <%= link_to 'View Reports', reports_project_issues_path(@project), class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2" %>
-      <%= link_to 'Export', export_project_issues_path(@project, format: :xlsx), class: "bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded" %>
+      <%= link_to 'New Issue', new_project_issue_path(@project), 
+          class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" %>
+      <%= link_to 'View Reports', reports_project_issues_path(@project), 
+          class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2" %>
+      <%= link_to 'Export', export_project_issues_path(@project, format: :xlsx), 
+          class: "bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded" %>
     </div>
   </div>
 

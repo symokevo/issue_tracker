@@ -20,7 +20,8 @@ class IssuesController < ApplicationController
     @issue = @project.issues.new(issue_params)
 
     if @issue.save
-      redirect_to project_issue_path(@project, @issue), notice: "Issue was successfully created."
+      redirect_to project_issue_path(@project, @issue),
+      notice: "Issue was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +29,8 @@ class IssuesController < ApplicationController
 
   def update
     if @issue.update(issue_params)
-      redirect_to project_issue_path(@project, @issue), notice: "Issue was successfully updated."
+      redirect_to project_issue_path(@project, @issue),
+      notice: "Issue was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,7 +38,8 @@ class IssuesController < ApplicationController
 
   def destroy
     @issue.destroy
-    redirect_to project_issues_url(@project), notice: "Issue was successfully destroyed."
+    redirect_to project_issues_url(@project),
+    notice: "Issue was successfully destroyed."
   end
 
   def reports
